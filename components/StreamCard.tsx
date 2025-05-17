@@ -1,6 +1,11 @@
+import Link from "next/link";
+
 export default function StreamCard({ stream }: { stream: any }) {
   return (
-    <div className="bg-gray-900 p-4 rounded-xl text-white w-[280px] shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl cursor-pointer group relative overflow-hidden">
+    <Link
+      href={`/watch/${encodeURIComponent(stream.playbackurl)}`}
+      className="bg-gray-900 p-4 rounded-xl text-white w-[280px] shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl cursor-pointer group relative overflow-hidden block"
+    >
       <div className="relative mb-3">
         <img
           src={stream.thumbnail}
@@ -19,6 +24,6 @@ export default function StreamCard({ stream }: { stream: any }) {
         <span className="inline-block w-2 h-2 bg-green-500 rounded-full animate-pulse" />
         {stream.channel}
       </h3>
-    </div>
+    </Link>
   );
 }
