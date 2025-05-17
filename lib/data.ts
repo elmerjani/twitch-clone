@@ -65,7 +65,7 @@ export const dummyStreams = [
     playbackurl: "stream-7",
     hlsUrl: "https://mojen.secdn.net/live/mtvhd/playlist.m3u8",
     thumbnail:
-      "https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=400&q=80",
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=400&q=80",
     title: "Soccer Finals Live!",
     channel: "SportsZone",
     category: "Sports",
