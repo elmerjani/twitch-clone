@@ -10,6 +10,7 @@ export async function POST(req: NextRequest) {
   if (body.type === "user.created") {
     const clerkUserId = body.data.id;
     const dbUser = await createUser({ role: "admin" });
+    clerkClient.users.updateUser(clerkUserId, {externalId:dbUser.id});
     // Optionally, update Clerk externalId here
     // Ask user for channel name and category (placeholder categories)
     // This should be done in the onboarding UI, not here
