@@ -1,19 +1,35 @@
-import { FlatCompat } from "@eslint/eslintrc";
+// eslint.config.js
+import { FlatCompat } from '@eslint/eslintrc';
+import prettierPlugin from 'eslint-plugin-prettier';
 
 const compat = new FlatCompat({
-  // import.meta.dirname is available after Node.js v20.11.0
   baseDirectory: import.meta.dirname,
 });
 
-const eslintConfig = [
+export default [
+  // Next.js base config with custom rule overrides
   ...compat.config({
-    extends: ["next"],
+    extends: ['next'],
     rules: {
-      "react/no-unescaped-entities": "off",
-      "@next/next/no-page-custom-font": "off",
-      "no-unused-vars": "off",
+      'react/no-unescaped-entities': 'off',
+      '@next/next/no-page-custom-font': 'off',
+      'no-unused-vars': 'off',
     },
   }),
-];
 
-export default eslintConfig;
+  // Prettier integration
+  {
+    files: ['**/*.{js,jsx,ts,tsx}'],
+    languageOptions: {
+      ecmaVersion: 2021,
+      sourceType: 'module',
+    },
+    plugins: {
+      prettier: prettierPlugin,
+    },
+    rules: {
+      'prettier/prettier': 'error',
+      semi: ['warn', 'always'],
+    },
+  },
+];
