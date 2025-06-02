@@ -40,9 +40,18 @@ export default function RootLayout({
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white min-h-screen`}
         >
-          <header className="flex justify-between items-center px-6 py-4 h-16 sticky top-0 z-50 bg-black border-b border-gray-800">
-            <div className="text-xl font-bold text-white">
-              <Link href="/">🎥 StreamHub</Link>
+          <header className="w-full flex items-center justify-between px-6 py-4 bg-gray-950 border-b border-gray-800">
+            <div className="flex items-center gap-4">
+              <Link href="/">
+                <button className="text-xl font-bold text-white cursor-pointer">
+                  🎥 StreamHub
+                </button>
+              </Link>
+              <Link href="/me">
+                <button className="px-4 py-2 bg-purple-700 hover:bg-purple-800 text-white font-semibold rounded-lg shadow transition-colors">
+                  Go Live
+                </button>
+              </Link>
             </div>
             <div className="flex items-center gap-4">
               <SignedOut>
@@ -52,7 +61,7 @@ export default function RootLayout({
                   </Button>
                 </SignInButton>
                 <SignUpButton mode="redirect">
-                  <Button className="bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-lg text-sm">
+                  <Button className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg text-sm">
                     Sign Up
                   </Button>
                 </SignUpButton>

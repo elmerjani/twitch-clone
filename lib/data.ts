@@ -2,7 +2,7 @@ export const dummyStreams = [
   {
     playbackurl: "stream-1",
     hlsUrl:
-      "https://bf69bb9a6fbd.eu-central-1.playback.live-video.net/api/video/v1/eu-central-1.423623853679.channel.HBouiolQbrCv.m3u8",
+      "https://bf69bb9a6fbd.eu-central-1.playback.live-video.net/api/video/v1/eu-central-1.423623853679.channel.ldzwM71SRC1L.m3u8",
     thumbnail:
       "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80",
     title: "Epic Battle in Apex Legends ",

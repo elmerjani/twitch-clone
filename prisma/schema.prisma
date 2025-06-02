@@ -14,10 +14,10 @@ datasource db {
   url       = env("DATABASE_URL")
 }
 
-model User {
-  id        String   @id @default(uuid())
+model Users {
+  id        String   @id 
   role      String
-  has_channel Boolean @default(false)
+  channelId String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
