@@ -48,9 +48,7 @@ export default function RootLayout({
                 </button>
               </Link>
               <Link href="/me">
-                <button className="px-4 py-2 bg-purple-700 hover:bg-purple-800 text-white font-semibold rounded-lg shadow transition-colors">
-                  Go Live
-                </button>
+                
               </Link>
             </div>
             <div className="flex items-center gap-4">
