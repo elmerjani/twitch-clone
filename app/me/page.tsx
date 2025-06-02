@@ -1,7 +1,7 @@
-import { currentUser } from "@clerk/nextjs/server";
-import { redirect } from "next/navigation";
-import { getUser } from "@/lib/user";
-import CredentialFields from "@/components/CredentialFields";
+import { currentUser } from '@clerk/nextjs/server';
+import { redirect } from 'next/navigation';
+import { getUser } from '@/lib/user';
+import CredentialFields from '@/components/CredentialFields';
 
 function LoadingSkeleton() {
   return (
@@ -26,7 +26,7 @@ function LoadingSkeleton() {
 
 export default async function MePage() {
   const user = await currentUser();
-  if (!user) redirect("/sign-in");
+  if (!user) redirect('/sign-in');
 
   // Use user.externalId if available, otherwise fallback to user.id
   let localUser = await getUser(user.id);
@@ -45,9 +45,7 @@ export default async function MePage() {
 
   let channel: any = undefined;
   if (localUser.channelId) {
-    const channelRes = await fetch(
-      `http://localhost:8080/channels/${localUser.channelId}`,
-    );
+    const channelRes = await fetch(`http://localhost:8080/channels/${localUser.channelId}`);
     if (channelRes.ok) {
       channel = await channelRes.json();
     }
@@ -58,22 +56,16 @@ export default async function MePage() {
       <h1 className="text-2xl font-bold mb-4">My Profile</h1>
       <div className="mb-6">
         <div className="flex items-center gap-4">
-          <img
-            src={user.imageUrl}
-            alt="avatar"
-            className="w-16 h-16 rounded-full border-2 border-purple-500"
-          />
+          <img src={user.imageUrl} alt="avatar" className="w-16 h-16 rounded-full border-2 border-purple-500" />
           <div>
             <div className="font-semibold">
               {user.username ||
-                (typeof user.primaryEmailAddress === "string"
+                (typeof user.primaryEmailAddress === 'string'
                   ? user.primaryEmailAddress
                   : user.primaryEmailAddress?.emailAddress) ||
-                "Unknown"}
+                'Unknown'}
             </div>
-            <div className="text-sm text-gray-400">
-              Role: {localUser?.role || "user"}
-            </div>
+            <div className="text-sm text-gray-400">Role: {localUser?.role || 'user'}</div>
           </div>
         </div>
       </div>
