@@ -1,0 +1,15 @@
+[allowlist]
+  description = "Ignore common generated and environment files"
+  paths = [
+    "^node_modules/",
+    "^.next/",
+    "^prisma/migrations/",
+    "^\\.env.*",
+    "^\\.clerk/"
+  ]
+
+[[rules]]
+  id = "generic-api-key"
+  description = "Generic API Key"
+  regex = '''(?i)(api|token|secret|key)[\s:=]+['"]?[a-z0-9_\-]{32,}['"]?'''
+  tags = ["key", "api", "token"]

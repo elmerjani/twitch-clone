@@ -1,4 +1,8 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npx lint-staged --allow-empty
+echo "🔍 Running lint-staged..."
+npx lint-staged --allow-empty || exit 1
+
+echo "🔒 Scanning for secrets with Gitleaks..."
+gitleaks detect --no-git --exit-code 1 || exit 1
